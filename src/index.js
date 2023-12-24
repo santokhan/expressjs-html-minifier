@@ -4,6 +4,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 const cors = require('cors');
 const fs = require('fs');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 app.use(cors({ accessControlAllowOrigin: '*' }));
 app.use(express.json({ type: 'application/json' }));
@@ -11,10 +14,12 @@ app.use('/', express.static('public'));
 // app.use('/api/markdown', express.static('README.md'));
 
 app.get('/api/markdown', (req, res) => {
-    const markdown = fs.readFileSync('README.md', 'utf8', (err, data) => {
-        console.log(err);
-    })
-    res.json({ markdown });
+    const markdown = fs.readFileSync('README.md', 'utf8');
+    if (markdown) {
+        res.send({ markdown });
+    } else {
+        res.status(404).send('No markdown file found.');
+    }
 });
 
 /**
@@ -35,8 +40,10 @@ app.post('/api/minify', (req, res) => {
     }
 });
 
+if (process.env.VERCEL === 'false') {
+    app.listen(port, () => {
+        console.log(`Server is running at http://localhost:${port}`);
+    });
+    return;
+}
 module.exports = app;
-// or
-// app.listen(port, () => {
-//     console.log(`Server is running at http://localhost:${port}`);
-// });
