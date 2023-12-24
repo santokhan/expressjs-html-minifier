@@ -3,13 +3,18 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const cors = require('cors');
+const fs = require('fs');
 
 app.use(cors({ accessControlAllowOrigin: '*' }));
 app.use(express.json({ type: 'application/json' }));
 app.use('/', express.static('public'));
+// app.use('/api/markdown', express.static('README.md'));
 
-app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to the HTML minifier', });
+app.get('/api/markdown', (req, res) => {
+    const markdown = fs.readFileSync('README.md', 'utf8', (err, data) => {
+        console.log(err);
+    })
+    res.json({ markdown });
 });
 
 /**
@@ -30,8 +35,8 @@ app.post('/api/minify', (req, res) => {
     }
 });
 
-module.exports = app;
+// module.exports = app;
 // or
-// app.listen(port, () => {
-//     console.log(`Server is running at http://localhost:${port}`);
-// });
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+});
