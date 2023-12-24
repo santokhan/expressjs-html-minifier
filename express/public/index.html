@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Minifier API by Santo</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/github-markdown.css">
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js"></script>
+    <script src="./assets/js/markdown.js"></script>
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                hljs.highlightAll();
+            }, 10);
+
+            const url = window.location.origin + '/api/minify';
+            document.getElementById('url').innerText = url;
+        })
+    </script>
+</head>
+
+<body>
+    <header>
+        <section class="max-w-screen-md mx-auto p-4">
+            <div class="space-y-2">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-gray-800">HTML Minifier by
+                    Santo</h2>
+                <p class="text-gray-600">POST HTML to the API URL and get minified HTML.</p>
+                <p class="text-gray-600 font-medium">API URL: <span id="url" class="text-blue-500"></span></p>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="max-w-screen-md mx-auto p-4 space-y-8">
+            <div class="">
+                <table class="">
+                    <thead>
+                        <tr>
+                            <th class="border px-3 py-2 text-start whitespace-nowrap font-medium" colspan="2">Request</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border px-3 py-2 text-start whitespace-nowrap">Method</td>
+                            <td class="border px-3 py-2 text-start">POST</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2 text-start whitespace-nowrap">Content-Type</td>
+                            <td class="border px-3 py-2 text-start">application/json</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2 text-start whitespace-nowrap">Request Body</td>
+                            <td class="border px-3 py-2 text-start space-y-2">
+                                <pre
+                                    class="json"><code><span>&#123; </span>html<span> : </span><span>&quot;<span>\&quot;</span>&lt;html&gt;<span>\n</span>   &lt;/html&gt;<span>\&quot;</span>&quot;</span><span> &#125;</span></code></pre>
+                                <p class="text-gray-600">Copy the object that contains HTML and paste it to browser
+                                    console. Then copy the code.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="">
+                <table class="">
+                    <thead>
+                        <tr>
+                            <th class="border px-3 py-2 text-start whitespace-nowrap font-medium" colspan="2">Response</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border px-3 py-2 text-start whitespace-nowrap">Content-Type</td>
+                            <td class="border px-3 py-2 text-start">application/json</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2 text-start whitespace-nowrap">JSON Response</td>
+                            <td class="border px-3 py-2 text-start space-y-2">
+                                <pre
+                                    class="json"><code><span>&#123; </span>html<span> : </span><span>&quot;<span>\&quot;</span>&lt;html&gt;<span></span>&lt;/html&gt;<span>\&quot;</span>&quot;</span><span> &#125;</span></code></pre>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="max-w-screen-md mx-auto p-4">
+            <div class="markdown-body"></div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
