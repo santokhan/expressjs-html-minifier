@@ -1,0 +1,18 @@
+{
+  "name": "minify-your-html",
+  "version": "1.0.0",
+  "description": "Minify html to save on database",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "html-minifier": "^4.0.0",
+    "nodemon": "^3.0.2"
+  }
+}
