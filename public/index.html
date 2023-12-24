@@ -12,14 +12,11 @@
     <link rel="stylesheet" href="./assets/css/github-markdown.css">
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js"></script>
     <script src="./assets/js/markdown.js"></script>
-
     <!-- Highlightjs -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
     <!-- and it's easy to individually load additional languages -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
@@ -32,8 +29,8 @@
     </script>
 </head>
 
-<body>
-    <header>
+<body class="bg-gray-700">
+    <!-- <header>
         <section class="max-w-screen-md mx-auto p-4">
             <div class="space-y-2">
                 <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-gray-800">HTML Minifier by
@@ -42,9 +39,9 @@
                 <p class="text-gray-600 font-medium">API URL: <span id="url" class="text-blue-500"></span></p>
             </div>
         </section>
-    </header>
+    </header> -->
     <main>
-        <section class="max-w-screen-md mx-auto p-4 space-y-8">
+        <!-- <section class="max-w-screen-md mx-auto p-4 space-y-8">
             <div class="">
                 <table class="">
                     <thead>
@@ -95,12 +92,13 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </section> -->
         <section class="max-w-screen-md mx-auto p-4">
-            <div class="markdown-body"></div>
+            <div class="markdown-body">
+                <div class="render-markdown"></div>
+            </div>
         </section>
     </main>
-    <footer></footer>
 </body>
 
 </html>
