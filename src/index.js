@@ -40,10 +40,4 @@ app.post('/api/minify', (req, res) => {
     }
 });
 
-if (process.env.VERCEL === 'false') {
-    app.listen(port, () => {
-        console.log(`Server is running at http://localhost:${port}`);
-    });
-    return;
-}
 module.exports = app;
