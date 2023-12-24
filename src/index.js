@@ -35,8 +35,8 @@ app.post('/api/minify', (req, res) => {
     }
 });
 
-// module.exports = app;
+module.exports = app;
 // or
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Server is running at http://localhost:${port}`);
+// });
