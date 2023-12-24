@@ -19,12 +19,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                hljs.highlightAll();
-            }, 10);
-
             const url = window.location.origin + '/api/minify';
-            document.getElementById('url').innerText = url;
+            const urlDOM = document.getElementById('url')
+            if (urlDOM) {
+                urlDOM.innerText = url;
+            }
         })
     </script>
 </head>
